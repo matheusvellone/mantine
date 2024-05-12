@@ -15,7 +15,7 @@ import { ChartSeries } from '../types';
 import { getSeriesLabels } from '../utils';
 import classes from './ChartTooltip.module.css';
 
-export function getFilteredChartTooltipPayload(payload: Record<string, any>[], segmentId?: string) {
+export function getFilteredChartTooltipPayload<T extends Record<string, any>[]>(payload: T, segmentId?: string) {
   const duplicatesFilter = payload.filter((item) => item.fill !== 'none' || !item.color);
 
   if (!segmentId) {
